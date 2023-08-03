@@ -110,7 +110,6 @@ video {
 /* chat component */
 .messages-wrapper {
   padding: 12px;
-  margin-bottom: 60px;
 }
 .chat-bubble {
   border-radius: 20px 20px 20px 0;
@@ -153,7 +152,7 @@ video {
 /* send message */
 .send-message {
   position: fixed;
-  bottom: 0px;
+  bottom: 28vh;
   width: 100%;
   padding: 16px 16px;
   background-color: #4c768d;
