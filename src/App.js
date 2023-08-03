@@ -1,6 +1,87 @@
 import "./styles.css";
-import { createLocalVideoTrack, connect as twillioConnect } from "twilio-video";
 import { useEffect } from "react";
+import { auth } from "./firebase";
+import ChatBox from "./components/ChatBox";
+import Welcome from "./components/Welcome";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { createLocalVideoTrack, connect as twillioConnect } from "twilio-video";
+
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  text-align: center;
+`;
+
+const ParticipantsContainer = styled.div`
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+
+  @media only screen and (max-width: 500px) {
+    flex-direction: column;
+  }
+`;
+
+const Participant = styled.div`
+  width: 25vw;
+  overflow: hidden;
+  margin: 0.625rem;
+  position: relative;
+  border-radius: 0.625rem;
+  background-color: black;
+
+  @media only screen and (max-width: 500px) {
+    width: 100vw;
+    height: 65vw;
+    margin: 0 auto;
+    border-radius: 0;
+  }
+`;
+
+const Form = styled.form`
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 5rem;
+  position: absolute;
+  justify-content: center;
+
+  @media only screen and (max-width: 500px) {
+    padding: 1rem;
+    padding-top: 12px;
+    padding-bottom: 0;
+  }
+`;
+
+const Button = styled.button`
+  width: 10rem;
+  height: 4rem;
+  border: none;
+  font-size: 1rem;
+  color: rgb(255, 255, 255);
+  background: rgb(247, 120, 184);
+  transition: background-color 0.3s ease;
+  :hover {
+    background: rgb(184, 77, 132);
+  }
+  :active {
+    background: rgb(184, 77, 132);
+  }
+
+  @media only screen and (max-width: 500px) {
+    height: 32px;
+    padding: 0 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    width: max-content;
+    background: rgb(247, 120, 184);
+  }
+`;
 
 const init = () => {
   const localParticipant = document.getElementById("localParticipant");
@@ -65,7 +146,7 @@ const init = () => {
   const disconnect = () => {
     room.disconnect();
     connected = false;
-    remoteParticipant.lastElementChild.remove();
+    // remoteParticipant.lastElementChild.remove();
     joinLeaveButton.innerHTML = "Join Video Call";
   };
 
@@ -109,24 +190,28 @@ export default function App() {
     init();
   }, []);
 
+  const [user] = useAuthState(auth);
+
+  const renderChat = () => {
+    if (user) {
+      return <ChatBox />;
+    }
+    return <Welcome />;
+  };
+
   return (
-    <div className="App">
-      <div id="participants">
-        <div id="localParticipant" className="participant">
+    <Wrapper className="App">
+      <ParticipantsContainer id="participants">
+        <Participant id="localParticipant" className="participant">
           <div className="identity" id="localIdentity"></div>
-        </div>
-        <div id="remoteParticipant" className="participant">
-          <div className="identity" id="remoteIdentity"></div>
-        </div>
-      </div>
-      <form id="login">
-        <button id="joinOrLeave">Join Video Call</button>
-      </form>
-      <iframe
-        title="chat-app"
-        src="https://react-chat-ru.vercel.app/"
-        sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation"
-      />
-    </div>
+        </Participant>
+        <Participant id="remoteParticipant" className="participant">
+          <Form id="login">
+            <Button id="joinOrLeave">Join Video Call</Button>
+          </Form>
+        </Participant>
+      </ParticipantsContainer>
+      {renderChat()}
+    </Wrapper>
   );
 }
