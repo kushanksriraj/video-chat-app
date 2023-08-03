@@ -13,11 +13,11 @@ body {
 
 input {
   border: none;
-  background: rgb(233, 230, 230);
-  padding: 1rem 11.5rem;
   height: 4rem;
-  font-size: 1.125rem;
   text-align: center;
+  font-size: 1.125rem;
+  padding: 1rem 11.5rem;
+  background: rgb(233, 230, 230);
 }
 
 video {
@@ -28,12 +28,12 @@ video {
 }
 
 #localParticipant {
+  right: 0;
+  top: 1px;
+  z-index: 100;
   width: 150px;
   height: 100px;
   position: absolute;
-  top: 1px;
-  right: 0;
-  z-index: 100;
 }
 
 #remoteParticipant {
@@ -63,18 +63,18 @@ video {
 */
 
 .nav-bar {
-  padding: 10px 30px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #4c768d;
-  color: #242443;
-  height: 60px;
-  position: fixed;
-  left: 0;
   top: 0;
-  width: 100%;
+  left: 0;
   z-index: 1;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  position: fixed;
+  color: #242443;
+  padding: 10px 30px;
+  align-items: center;
+  background-color: #4c768d;
+  justify-content: space-between;
 }
 
 .sign-in {
@@ -83,105 +83,113 @@ video {
 }
 
 .sign-in > img {
-  height: 40px;
   width: auto;
+  height: 40px;
 }
 
 .sign-out {
-  padding: 12px;
   margin: 4px;
-  border-radius: 5px;
+  padding: 12px;
   color: #88dded;
-  border: 1px solid #1c2c4c;
-  background-color: black;
   font-weight: 600;
+  border-radius: 5px;
+  background-color: black;
+  border: 1px solid #1c2c4c;
 }
 
-/* welcome page */
 .welcome {
   padding: 30px;
-  text-align: center;
   color: #7cc5d9;
+  text-align: center;
 }
 .welcome :is(h2, p, img) {
   margin-bottom: 20px;
 }
 
-/* chat component */
 .messages-wrapper {
   padding: 12px;
+  margin-bottom: 60px;
 }
+
 .chat-bubble {
-  border-radius: 20px 20px 20px 0;
   padding: 12px;
-  background-color: #7cc5d9;
+  display: flex;
   color: #1c2c4c;
   width: max-content;
-  max-width: calc(100% - 50px);
-  box-shadow: -2px 2px 1px 1px #4c768d;
-  display: flex;
-  align-items: flex-start;
   margin-bottom: 16px;
+  align-items: flex-start;
+  background-color: #7cc5d9;
+  max-width: calc(100% - 50px);
+  border-radius: 20px 20px 20px 0;
+  box-shadow: -2px 2px 1px 1px #4c768d;
 }
+
 .chat-bubble.right {
   margin-left: auto;
-  border-radius: 20px 20px 0 20px;
   background-color: #fff;
+  border-radius: 20px 20px 0 20px;
   box-shadow: -2px 2px 1px 1px #88dded;
 }
+
 .chat-bubble__left {
   width: 25px;
   height: 25px;
-  border-radius: 50%;
   margin-right: 8px;
+  border-radius: 50%;
 }
+
 .user-name {
-  font-weight: bold;
-  margin-bottom: 5px;
-  font-size: 0.9rem;
   color: #1c2c4c;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
 }
+
 .user-message {
   word-break: break-all;
 }
+
 .message-time {
   display: block;
   text-align: right;
 }
 
-/* send message */
 .send-message {
-  position: fixed;
-  bottom: 28vh;
+  bottom: 0;
   width: 100%;
+  display: flex;
+  position: fixed;
   padding: 16px 16px;
   background-color: #4c768d;
-  display: flex;
 }
+
 .send-message > input {
   height: 40px;
-  padding: 10px 10px;
-  border-radius: 5px 0 0 5px;
   border: none;
   flex-grow: 1;
-  background-color: white;
-  color: #1c2c4c;
   font-size: 1rem;
+  color: #1c2c4c;
+  padding: 10px 10px;
+  background-color: white;
+  border-radius: 5px 0 0 5px;
 }
+
 .send-message > input:placeholder {
   color: #ddd;
 }
+
 .send-message > :is(input, button):focus {
   outline: none;
   border-bottom: 1px solid #7cc5d9;
 }
+
 .send-message > button {
   width: 70px;
   height: 40px;
+  color: #242443;
+  font-weight: 600;
   padding: 5px 10px;
   border-radius: 0 5px 5px 0;
-  color: #242443;
   border: 1px solid #7cc5d9;
   background-color: #7cc5d9;
-  font-weight: 600;
 }

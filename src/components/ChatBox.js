@@ -14,7 +14,7 @@ import NavBar from "./NavBar";
 import styled from "styled-components";
 
 const Wrapper = styled.main`
-  height: 20vh;
+  height: 60vh;
   position: relative;
   color: #4c768d;
   overflow-y: scroll;
