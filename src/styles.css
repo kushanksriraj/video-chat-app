@@ -42,6 +42,10 @@ video {
   position: relative;
 }
 
+#remoteParticipant video {
+  height: 40vh;
+}
+
 @media only screen and (max-width: 500px) {
   body {
     width: 100%;
