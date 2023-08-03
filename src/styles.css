@@ -2,3 +2,156 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+
+body {
+  margin: 0 auto;
+  font-family: sans-serif;
+  overflow-y: scroll;
+}
+
+#participants {
+  display: flex;
+  justify-content: center;
+}
+
+.participant {
+  position: relative;
+  border-radius: 0.625rem;
+  margin: 0.625rem;
+  width: 25vw;
+  overflow: hidden;
+  background-color: black;
+}
+
+.identity {
+  position: absolute;
+  left: 0;
+  bottom: 8px;
+  color: white;
+  padding-left: 0.9375rem;
+  z-index: 10;
+  font-size: 12px;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem 5rem;
+}
+
+input {
+  border: none;
+  background: rgb(233, 230, 230);
+  padding: 1rem 11.5rem;
+  height: 4rem;
+  font-size: 1.125rem;
+  text-align: center;
+}
+
+button {
+  width: 10rem;
+  height: 4rem;
+  background: rgb(247, 120, 184);
+  color: rgb(255, 255, 255);
+  border: none;
+  font-size: 1rem;
+}
+
+button:hover, button:active {
+  background: rgb(184, 77, 132);
+}
+
+video {
+  width: 100%
+  height: 100%;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+@media only screen and (max-width: 500px) {
+
+  body {
+    width: 100%;
+    margin: 0 auto;
+    font-family: sans-serif;
+  }
+
+  #participants {
+    flex-direction: column;
+  }
+
+  .participant {
+    border-radius: 0;
+    margin: 0 auto;
+    width: 100vw;
+    height: 65vw;
+  }
+
+  form {
+    padding: 1rem;
+    padding-top: 12px;
+    padding-bottom: 0;
+  }
+
+  input {
+    padding: 0;
+    width: 100%;
+    height: 4rem;
+  }
+
+  button {
+    width: max-content;
+    height: 32px;
+    padding: 0 12px;
+    background: rgb(247, 120, 184);
+    color: white;
+    border: none;
+    font-size: 14px;
+    border-radius: 5px
+  }
+
+  video {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+#localParticipant {
+  width: 150px;
+  height: 100px;
+  position: absolute;
+  top: 1px;
+  right: 0;
+  z-index: 100;
+}
+
+#remoteParticipant {
+  width: 100%;
+  height: 40vh;
+}
+
+iframe {
+ margin-top: 40vh;
+ width: 100%;
+ height: 60vh;
+ outline: none;
+ border: none;
+}
+
+
+#participants {
+  height: 40vh;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 50px;
+}
+
+form {
+  position: absolute;
+  margin-top: 36vh;
+  right: 0;
+}
