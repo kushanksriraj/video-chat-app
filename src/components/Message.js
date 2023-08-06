@@ -26,11 +26,11 @@ const Message = ({ message }) => {
 
   React.useEffect(() => {
     if (user.email === "kushanksriraj@gmail.com") {
-      translate(text, "en", "ru").then((data) =>
+      translate(text, "ru", "en").then((data) =>
         setTranslatedText(data.translatedText)
       );
     } else {
-      translate(text, "ru", "en").then((data) =>
+      translate(text, "en", "ru").then((data) =>
         setTranslatedText(data.translatedText)
       );
     }
