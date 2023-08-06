@@ -25,10 +25,16 @@ const Message = ({ message }) => {
   const [translatedText, setTranslatedText] = React.useState(text);
 
   React.useEffect(() => {
-    translate(text, "en", "ru").then((data) =>
-      setTranslatedText(data.translatedText)
-    );
-  }, [text]);
+    if (user.email === "kushanksriraj@gmail.com") {
+      translate(text, "en", "ru").then((data) =>
+        setTranslatedText(data.translatedText)
+      );
+    } else {
+      translate(text, "ru", "en").then((data) =>
+        setTranslatedText(data.translatedText)
+      );
+    }
+  }, [text, user.email]);
 
   return (
     <div className={`chat-bubble ${message.uid === user.uid ? "right" : ""}`}>
