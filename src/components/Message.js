@@ -2,12 +2,11 @@ import React from "react";
 import { auth } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 
-const translate = async (text = "", from = "en", to = "ru") => {
-  return fetch("https://translater.kushanksriraj.repl.co/translate", {
+const translate = async (text = "", to = "ru") => {
+  return fetch("https://translater.kushanksriraj.repl.co/v2/translate", {
     method: "post",
     body: JSON.stringify({
       text,
-      lang: from,
       target_lang: to
     }),
     headers: {
@@ -26,11 +25,11 @@ const Message = ({ message }) => {
 
   React.useEffect(() => {
     if (user.email === "kushanksriraj@gmail.com") {
-      translate(text, "ru", "en").then((data) =>
+      translate(text, "en").then((data) =>
         setTranslatedText(data.translatedText)
       );
     } else {
-      translate(text, "en", "ru").then((data) =>
+      translate(text, "ru").then((data) =>
         setTranslatedText(data.translatedText)
       );
     }
