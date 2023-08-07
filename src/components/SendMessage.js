@@ -16,8 +16,8 @@ const SendMessage = () => {
     const { uid, displayName, photoURL } = auth.currentUser;
     await addDoc(collection(db, "messages"), {
       text: message,
-      name: displayName,
-      avatar: photoURL,
+      name: displayName || "Kristina",
+      avatar: photoURL || "https://m4pr9x.csb.app/girl-avatar.avif",
       createdAt: serverTimestamp(),
       uid
     });
