@@ -16,17 +16,25 @@ const Container = styled.div`
   display: flex;
   margin-bottom: 16px;
   align-items: center;
+  .email {
+    margin-right: 38px;
+  }
 `;
 
 const Input = styled.input`
   height: 32px;
+  color: #374151;
+  font-size: 16px;
+  text-align: left;
+  padding-left: 12px;
   border-radius: 5px;
-  border: 1px solid #94a3b8;
+  font-weight: normal;
   background-color: unset;
+  border: 1px solid #94a3b8;
 `;
 
 const Label = styled.label`
-  margin-right: 8px;
+  margin-right: 12px;
   color: #475569;
   font-size: 14px;
 `;
@@ -74,7 +82,9 @@ const Welcome = () => {
       <hr />
       <Form onSubmit={onFormSubmit}>
         <Container>
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email" className="email">
+            Email
+          </Label>
           <Input id="email" name="email" />
         </Container>
         <Container>
