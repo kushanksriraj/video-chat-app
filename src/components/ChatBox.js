@@ -8,17 +8,24 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 import Message from "./Message";
-import SendMessage from "./SendMessage";
+
 import NavBar from "./NavBar";
 
 import styled from "styled-components";
 
 const Wrapper = styled.main`
-  height: 60vh;
-  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 25vh;
   color: #4c768d;
   overflow-y: scroll;
-  background-color: #1c2c4c;
+  position: absolute;
+  background: transparent;
+`;
+
+const MessageWrapper = styled.div`
+  padding: 12px;
+  padding-bottom: 0;
 `;
 
 const ChatBox = () => {
@@ -53,13 +60,12 @@ const ChatBox = () => {
   return (
     <Wrapper>
       <NavBar />
-      <div className="messages-wrapper">
+      <MessageWrapper>
         {messages?.map((message) => (
           <Message key={message.id} message={message} />
         ))}
-      </div>
+      </MessageWrapper>
       <div id="in-view-div"> </div>
-      <SendMessage />
     </Wrapper>
   );
 };

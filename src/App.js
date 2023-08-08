@@ -5,11 +5,13 @@ import ChatBox from "./components/ChatBox";
 import Welcome from "./components/Welcome";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { createLocalVideoTrack, connect as twillioConnect } from "twilio-video";
+import SendMessage from "./components/SendMessage";
 
 import styled from "styled-components";
 
 const Wrapper = styled.div`
   text-align: center;
+  position: relative;
 `;
 
 const ParticipantsContainer = styled.div`
@@ -81,6 +83,12 @@ const Button = styled.button`
     width: max-content;
     background: rgb(247, 120, 184);
   }
+`;
+
+const Spacer = styled.div`
+  width: 100%;
+  height: 8px;
+  background-color: black;
 `;
 
 const init = () => {
@@ -194,7 +202,13 @@ export default function App() {
 
   const renderChat = () => {
     if (user) {
-      return <ChatBox />;
+      return (
+        <>
+          <ChatBox />
+          <Spacer />
+          <SendMessage />
+        </>
+      );
     }
     return <Welcome />;
   };

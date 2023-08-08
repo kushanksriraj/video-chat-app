@@ -35,17 +35,22 @@ const Message = ({ message }) => {
     }
   }, [text, user.email]);
 
+  const firstName = message.name.split(" ")[0];
+
   return (
     <div className={`chat-bubble ${message.uid === user.uid ? "right" : ""}`}>
-      <img
-        className="chat-bubble__left"
-        src={message.avatar}
-        alt="user avatar"
-      />
       <div className="chat-bubble__right">
-        <p className="user-name">{message.name}</p>
-        <p className="user-message">{text}</p>
-        <p className="user-message">{translatedText}</p>
+        <p className="user-message">
+          <span
+            className={`user-name ${
+              message.uid === user.uid ? "blue" : "pink"
+            }`}
+          >
+            {firstName}:
+          </span>
+          {text}
+        </p>
+        <p className="user-message translated">{translatedText}</p>
       </div>
     </div>
   );

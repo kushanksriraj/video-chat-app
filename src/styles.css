@@ -38,7 +38,7 @@ video {
 
 #remoteParticipant {
   width: 100%;
-  height: 40vh;
+  height: 50vh;
   position: relative;
 }
 
@@ -110,47 +110,43 @@ video {
   margin-bottom: 20px;
 }
 
-.messages-wrapper {
-  padding: 12px;
-  margin-bottom: 60px;
-}
-
 .chat-bubble {
-  padding: 12px;
   display: flex;
+  max-width: 70%;
+  font-size: 14px;
+  padding: 6px 8px;
   color: #1c2c4c;
   width: max-content;
-  margin-bottom: 16px;
+  border-radius: 4px;
+  margin-bottom: 8px;
   align-items: flex-start;
-  background-color: #7cc5d9;
-  max-width: calc(100% - 50px);
-  border-radius: 20px 20px 20px 0;
-  box-shadow: -2px 2px 1px 1px #4c768d;
+  background-color: #fdf2f8;
 }
 
 .chat-bubble.right {
-  margin-left: auto;
-  background-color: #fff;
-  border-radius: 20px 20px 0 20px;
-  box-shadow: -2px 2px 1px 1px #88dded;
-}
-
-.chat-bubble__left {
-  width: 25px;
-  height: 25px;
-  margin-right: 8px;
-  border-radius: 50%;
+  border-radius: 4px;
+  background-color: #eff6ff;
 }
 
 .user-name {
-  color: #1c2c4c;
-  font-weight: bold;
-  font-size: 0.9rem;
-  margin-bottom: 5px;
+  font-size: 14px;
+  margin-right: 6px;
+}
+
+.user-name.blue {
+  color: #3b82f6;
+}
+
+.user-name.pink {
+  color: #ec4899;
 }
 
 .user-message {
-  word-break: break-all;
+  text-align: left;
+}
+
+.translated {
+  margin-top: 2px;
 }
 
 .message-time {
@@ -159,16 +155,18 @@ video {
 }
 
 .send-message {
-  bottom: 0;
   width: 100%;
+  height: 48px;
+  padding: 6px;
+  bottom: -48px;
   display: flex;
-  position: fixed;
-  padding: 16px 16px;
+  position: absolute;
+  align-items: center;
   background-color: #4c768d;
 }
 
 .send-message > input {
-  height: 40px;
+  height: 36px;
   border: none;
   flex-grow: 1;
   font-size: 1rem;
@@ -184,12 +182,11 @@ video {
 
 .send-message > :is(input, button):focus {
   outline: none;
-  border-bottom: 1px solid #7cc5d9;
 }
 
 .send-message > button {
   width: 70px;
-  height: 40px;
+  height: 36px;
   color: #242443;
   font-weight: 600;
   padding: 5px 10px;
