@@ -51,11 +51,11 @@ const ChatBox = () => {
     return () => unsubscribe;
   }, []);
 
-  useEffect(() => {
-    document
-      .getElementById("in-view-div")
-      .scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  // useEffect(() => {
+  //   document
+  //     .getElementById("in-view-div")
+  //     .scrollIntoView({ behavior: "smooth" });
+  // }, [messages]);
 
   return (
     <Wrapper>
@@ -65,7 +65,7 @@ const ChatBox = () => {
           <Message key={message.id} message={message} />
         ))}
       </MessageWrapper>
-      <div id="in-view-div"> </div>
+      {/* <div id="in-view-div"> </div> */}
     </Wrapper>
   );
 };
