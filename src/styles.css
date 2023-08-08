@@ -190,3 +190,7 @@ video {
   border: 1px solid #7cc5d9;
   background-color: #7cc5d9;
 }
+
+body {
+  overflow: hidden;
+}

@@ -54,7 +54,7 @@ const ChatBox = () => {
   useEffect(() => {
     document
       .getElementById("in-view-div")
-      .scrollIntoView({ behavior: "smooth" });
+      .scrollIntoView({ behavior: "smooth", block: "end" });
   }, [messages]);
 
   return (
