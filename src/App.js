@@ -118,7 +118,7 @@ const init = () => {
       } catch (error) {
         console.log(error);
         alert("Failed to connect to video room.");
-        joinLeaveButton.innerHTML = "Join Video Call";
+        joinLeaveButton.innerHTML = "Join Call";
         joinLeaveButton.disabled = false;
       }
     } else {
@@ -147,15 +147,14 @@ const init = () => {
     room.on("participantConnected", participantConnected);
     room.on("participantDisconnected", participantDisconnected);
     connected = true;
-    joinLeaveButton.innerHTML = "Leave Video Call";
+    joinLeaveButton.innerHTML = "Leave Call";
     joinLeaveButton.disabled = false;
   };
 
   const disconnect = () => {
     room.disconnect();
     connected = false;
-    // remoteParticipant.lastElementChild.remove();
-    joinLeaveButton.innerHTML = "Join Video Call";
+    joinLeaveButton.innerHTML = "Join Call";
   };
 
   const participantConnected = (participant) => {
@@ -221,7 +220,7 @@ export default function App() {
         </Participant>
         <Participant id="remoteParticipant" className="participant">
           <Form id="login">
-            <Button id="joinOrLeave">Join Video Call</Button>
+            <Button id="joinOrLeave">Join Call</Button>
           </Form>
         </Participant>
       </ParticipantsContainer>
