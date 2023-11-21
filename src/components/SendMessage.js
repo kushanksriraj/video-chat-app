@@ -16,7 +16,7 @@ const SendMessage = () => {
     const { uid, displayName, photoURL } = auth.currentUser;
     await addDoc(collection(db, "messages"), {
       text: message,
-      name: displayName || "Kristina",
+      name: displayName || "User",
       avatar: photoURL || "https://video-chat-11.vercel.app/girl-avatar.avif",
       createdAt: serverTimestamp(),
       uid
