@@ -2,8 +2,10 @@ import React from "react";
 import { auth } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 
+const API = 'https://eca0e270-0495-4096-890e-b1886c36824e-00-1b9aao43odhlm.asia-b.replit.dev'
+
 const translate = async (text = "", to = "ru") => {
-  return fetch("https://translater.kushanksriraj.repl.co/v2/translate", {
+  return fetch(`${API}/v2/translate`, {
     method: "post",
     body: JSON.stringify({
       text,
