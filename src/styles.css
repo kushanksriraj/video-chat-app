@@ -24,7 +24,7 @@ video {
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 #localParticipant {
@@ -194,3 +194,8 @@ video {
 /* body {
   overflow: hidden;
 } */
+
+
+.remote-video-container {
+  height: 100%;
+}

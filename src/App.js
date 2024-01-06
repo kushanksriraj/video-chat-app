@@ -161,6 +161,7 @@ const init = () => {
   const participantConnected = (participant) => {
     const tracksDiv = document.createElement("div");
     tracksDiv.setAttribute("id", participant.sid);
+    tracksDiv.setAttribute("class", 'remote-video-container');
     remoteParticipant.appendChild(tracksDiv);
     participant.tracks.forEach((publication) => {
       if (publication.isSubscribed) {
