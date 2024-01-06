@@ -29,21 +29,21 @@ video {
 
 #localParticipant {
   right: 0;
-  top: 1px;
+  top: -13px;
   z-index: 100;
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   position: absolute;
 }
 
 #remoteParticipant {
   width: 100%;
-  height: 40vh;
+  height: 70vh;
   position: relative;
 }
 
 #remoteParticipant video {
-  height: 40vh;
+  height: 70vh;
 }
 
 @media only screen and (max-width: 500px) {

@@ -20,7 +20,6 @@ const ParticipantsContainer = styled.div`
   top: 0;
   width: 100%;
   z-index: 50;
-  height: 50%;
   display: flex;
   justify-content: center;
 
