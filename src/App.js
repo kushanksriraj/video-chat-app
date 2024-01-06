@@ -9,6 +9,8 @@ import SendMessage from "./components/SendMessage";
 
 import styled from "styled-components";
 
+const TWILLIO_API = 'https://f40a022f-4750-4573-8dbc-8b48888f4b55-00-d762gz67likb.asia-a.replit.dev'
+
 const Wrapper = styled.div`
   text-align: center;
   position: relative;
@@ -128,7 +130,7 @@ const init = () => {
 
   const connect = async (identity) => {
     const response = await fetch(
-      "https://twillio.kushanksriraj.repl.co/token",
+      `${TWILLIO_API}/token`,
       {
         method: "POST",
         headers: {
